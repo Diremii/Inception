@@ -1,0 +1,8 @@
+srcs/.env
+
+/home/humontas/data/
+data/
+
+*.log
+
+.DS_Store
