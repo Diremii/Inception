@@ -10,10 +10,8 @@ services:
     volumes:
       - mariadb:/var/lib/mysql
     restart: on-failure
-    expose:
-      - "3306"
     healthcheck:
-      test: "mariadb-admin ping"
+      test: ["CMD", "mariadb-admin", "ping", "--skip-ssl"]
       interval: 5s
       timeout: 1m
       retries: 3
@@ -57,13 +55,13 @@ volumes:
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home/humontas/data/wordpress'
+      device: '/home/kami/data/wordpress'
   mariadb:
     driver: local
     driver_opts:
       type: 'none'
       o: 'bind'
-      device: '/home/humontas/data/mariadb'
+      device: '/home/kami/data/mariadb'
 
 networks:
   inception:

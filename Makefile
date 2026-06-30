@@ -29,8 +29,8 @@ RED=\033[0;31m
 all:
 	@clear
 	@echo "\n$$HEADER"
-	@mkdir -p /home/humontas/data/wordpress
-	@mkdir -p /home/humontas/data/mariadb
+	@mkdir -p /home/kami/data/wordpress
+	@mkdir -p /home/kami/data/mariadb
 	@echo "$(CYAN)Starting $(NAME)...$(RESET)"
 	@docker compose -f srcs/docker-compose.yml up -d --build
 	@echo "$(GREEN)$(NAME) is up!$(RESET)"
@@ -48,7 +48,7 @@ clean: down
 	@echo "$(CYAN)        Cleaning everything...       $(RESET)"
 	@echo "$(CYAN)   ╚════════════════════════════════╝$(RESET)"
 	@docker system prune -af
-	@sudo rm -rf /home/humontas/data
+	@sudo rm -rf /home/kami/data
 
 fclean: clean
 	@docker volume rm $$(docker volume ls -q) 2>/dev/null || true
